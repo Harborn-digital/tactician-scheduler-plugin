@@ -12,7 +12,7 @@ Make sure you put the SchedulerMiddleware in your CommandBus middleware chain:
 
 ```
 // create your other middleware
-$middleware[] = new FileBasedScheduler($pathWhereTheSchedulerMayKeepItsFiles);
+$middleware[] = new SchedulerMiddleware(new FileBasedScheduler($pathWhereTheSchedulerMayKeepItsFiles) );
 // create your other middleware
 $commandbus = new CommandBus($middleware);
 ```
