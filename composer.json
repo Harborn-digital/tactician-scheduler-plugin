@@ -1,0 +1,34 @@
+{
+    "name": "connectholland/tactician-scheduler-plugin",
+    "description": "Tactician plugin that allows scheduling a command to be executed at a specific time in the future",
+    "require": {
+        "league/tactician": "^0.6.0",
+        "ramsey/uuid": "^2.8",
+        "symfony/console": "^2.7"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^4.7",        
+        "squizlabs/php_codesniffer": "^2.3"
+    },
+    "bin": [
+        "bin/scheduler"
+    ],
+    "autoload": {
+        "classmap": [
+            "src/"
+        ]
+    },
+    "autoload-dev": {
+        "classmap": [
+            "tests/" ,
+            "vendor/league/tactician/tests"
+        ]
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ron Rademaker",
+            "email": "ron@connectholland.nl"
+        }
+    ]
+}
