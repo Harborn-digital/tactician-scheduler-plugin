@@ -82,7 +82,7 @@ class FileBasedScheduler implements SchedulerInterface
     public function getCommands()
     {
         $commands = [];
-        $now = mktime();
+        $now = time();
         foreach ($this->register as $commandId => $timestamp) {
             if ($timestamp <= $now) {
                 $commands[] = $this->getFromScheduler($commandId);

@@ -32,7 +32,7 @@ class FileBasedSchedulerTest extends AbstractFileBasedSchedulerTest
     {
         $scheduler = new FileBasedScheduler($this->path);
         $command = new ScheduledCommand();
-        $command->setTimestamp(mktime() + 1);
+        $command->setTimestamp(time() + 1);
         $id = $scheduler->schedule($command);
         $this->assertFileExists($this->path.$id);
         unlink($this->path.$id);

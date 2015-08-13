@@ -27,7 +27,7 @@ class AbstractScheduledCommand implements ScheduledCommandInterface
      */
     public function setTimestamp($timestamp)
     {
-        if ($timestamp < mktime()) {
+        if ($timestamp < time()) {
             throw new ScheduledInThePastException('Scheduling commands in the past is not allowed');
         }
 

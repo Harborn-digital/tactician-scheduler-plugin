@@ -73,7 +73,7 @@ class SchedulerMiddlewareTest extends AbstractFileBasedSchedulerTest
     public function testSchedulingCommand()
     {
         $command = new ScheduledCommand();
-        $command->setTimestamp(mktime() + 2);
+        $command->setTimestamp(time() + 2);
         $this->commandBus->handle($command);
 
         $this->assertNotContains('handleScheduledCommand', $this->methodHandler->getMethodsInvoked());
@@ -89,7 +89,7 @@ class SchedulerMiddlewareTest extends AbstractFileBasedSchedulerTest
     {
         $this->setExpectedException('ConnectHolland\Tactician\SchedulerPlugin\Exception\ScheduledInThePastException');
         $command = new ScheduledCommand();
-        $command->setTimestamp(mktime() - 1);
+        $command->setTimestamp(time() - 1);
         $this->commandBus->handle($command);
     }
 }

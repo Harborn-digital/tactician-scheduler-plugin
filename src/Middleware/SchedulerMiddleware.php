@@ -50,7 +50,7 @@ class SchedulerMiddleware implements Middleware
      */
     public function execute($command, callable $next)
     {
-        if (($command instanceof ScheduledCommandInterface) && ($command->getTimestamp() > mktime())) {
+        if (($command instanceof ScheduledCommandInterface) && ($command->getTimestamp() > time())) {
             return $this->scheduler->schedule($command);
         } elseif ($command instanceof ExecuteScheduledCommandsCommand) {
             $commands = $this->scheduler->getCommands();

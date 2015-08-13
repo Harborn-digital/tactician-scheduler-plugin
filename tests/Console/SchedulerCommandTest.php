@@ -65,7 +65,7 @@ class SchedulerCommandTest extends AbstractFileBasedSchedulerTest
     {
         // schedule a command
         $command = new ScheduledCommand();
-        $command->setTimestamp(mktime() + 2);
+        $command->setTimestamp(time() + 2);
         $id = $this->commandBus->handle($command);
 
         $this->assertFileExists($this->path.$id);
