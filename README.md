@@ -29,13 +29,14 @@ class SayHappyNewYear extends AbstractScheduledCommand
         $this->message = $message;
     }
 
-    public function getMessage() {
+    public function getMessage() 
+    {
         return $this->message;
     }
 }
 
 $myScheduledCommand = new SayHappyNewYear('Happy New Year');
-$myScheduledCommand->setTimestamp(strtotime'2016-01-01 0:00:00') );
+$myScheduledCommand->setTimestamp(strtotime('2016-01-01 0:00:00') );
 $myCommandBus->handle($myScheduledCommand);
 ```
 
