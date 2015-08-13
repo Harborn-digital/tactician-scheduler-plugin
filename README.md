@@ -44,7 +44,7 @@ Create a bootstrap file that builds your Commandbus and cron the schedule execut
 ```
 // setup any environment you need
 // create your other middleware
-$middleware[] = new FileBasedScheduler($pathWhereTheSchedulerMayKeepItsFiles);
+$middleware[] = new SchedulerMiddleware(new FileBasedScheduler($pathWhereTheSchedulerMayKeepItsFiles) );
 // create your other middleware
 $commandbus = new CommandBus($middleware);
 return $commandbus;
