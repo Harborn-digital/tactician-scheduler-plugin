@@ -1,4 +1,4 @@
-# tactician-prioritycommand-plugin
+# tactician-scheduler-plugin
 Tactician plugin that allows scheduling a command to be executed at a specific time in the future
 
 [![Build Status](https://travis-ci.org/RonRademaker/tactician-scheduler-plugin.svg?branch=master)](https://travis-ci.org/RonRademaker/tactician-scheduler-plugin)
