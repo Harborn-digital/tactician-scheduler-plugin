@@ -16,9 +16,11 @@ if (file_exists($autoload = __DIR__.'/../../../autoload.php')) {
     require_once __DIR__.'/../vendor/autoload.php';
 }
 
+use ConnectHolland\Tactician\SchedulerPlugin\Console\DaemonCommand;
 use ConnectHolland\Tactician\SchedulerPlugin\Console\SchedulerCommand;
 use Symfony\Component\Console\Application;
 
 $application = new Application();
 $application->add(new SchedulerCommand());
+$application->add(new DaemonCommand());
 $application->run();

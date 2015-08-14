@@ -57,3 +57,17 @@ Cron the scheduler at any interval you like (the more it runs, the better you ca
 ```
 * * * * *   www-data    vendor/bin/scheduler scheduler:execute bootstrap.php
 ```
+
+Or you can use the daemon command that ships with the package, to schedule an iteration every 10 seconds use:
+
+
+```
+vendor/bin/scheduler scheduler:daemon bootstrap.php 10
+```
+
+To make it stop after a minute use:
+
+```
+vendor/bin/scheduler scheduler:daemon bootstrap.php 10 6
+```
+
