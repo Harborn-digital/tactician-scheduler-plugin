@@ -4,6 +4,8 @@ Tactician plugin that allows scheduling a command to be executed at a specific t
 [![Build Status](https://travis-ci.org/RonRademaker/tactician-scheduler-plugin.svg?branch=master)](https://travis-ci.org/RonRademaker/tactician-scheduler-plugin)
 [![Coverage Status](https://coveralls.io/repos/RonRademaker/tactician-scheduler-plugin/badge.svg?branch=master&service=github)](https://coveralls.io/github/RonRademaker/tactician-scheduler-plugin?branch=master)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/f1bc6e91-5d26-4a5d-b311-a2c5af24cd76/mini.png)](https://insight.sensiolabs.com/projects/f1bc6e91-5d26-4a5d-b311-a2c5af24cd76)
+[![Latest Stable Version](https://poser.pugx.org/connectholland/tactician-scheduler-plugin/v/stable)](https://packagist.org/packages/connectholland/tactician-scheduler-plugin) [![Total Downloads](https://poser.pugx.org/connectholland/tactician-scheduler-plugin/downloads)](https://packagist.org/packages/connectholland/tactician-scheduler-plugin) [![Latest Unstable Version](https://poser.pugx.org/connectholland/tactician-scheduler-plugin/v/unstable)](https://packagist.org/packages/connectholland/tactician-scheduler-plugin) [![License](https://poser.pugx.org/connectholland/tactician-scheduler-plugin/license)](https://packagist.org/packages/connectholland/tactician-scheduler-plugin)
+
 
 # Concept
 This plugin allows you to create ScheduledCommands that will be executed at a specific time in the future.
