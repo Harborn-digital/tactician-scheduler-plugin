@@ -10,7 +10,7 @@ use MongoId;
 /**
  * Scheduler that uses a mongo database to store the commands
  *
- * @author Ron Rademaer
+ * @author Ron Rademaker
  */
 class MongoScheduler implements SchedulerInterface
 {
