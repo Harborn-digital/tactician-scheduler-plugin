@@ -34,6 +34,6 @@ class AbstractStatefulScheduledCommand extends AbstractScheduledCommand implemen
      */
     public function setFiniteState($state)
     {
-       $this->state = $state;
+        $this->state = $state;
     }
 }
