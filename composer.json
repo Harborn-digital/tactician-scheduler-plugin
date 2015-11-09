@@ -4,7 +4,8 @@
     "require": {
         "league/tactician": "^0.6.0",
         "ramsey/uuid": "^2.8",
-        "symfony/console": "^2.7"
+        "symfony/console": "^2.7",
+        "yohang/finite": "^1.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^4.7",        
