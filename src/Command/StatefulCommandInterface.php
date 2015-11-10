@@ -10,5 +10,4 @@ use Finite\StatefulInterface;
  */
 interface StatefulCommandInterface extends StatefulInterface
 {
-    
 }

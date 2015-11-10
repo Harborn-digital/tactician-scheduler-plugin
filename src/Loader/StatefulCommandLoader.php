@@ -18,16 +18,16 @@ class StatefulCommandLoader implements LoaderInterface
 {
     public function load(StateMachineInterface $stateMachine)
     {
-       $stateMachine->addState(new State('new', StateInterface::TYPE_INITIAL));
-       $stateMachine->addState(new State('scheduled', StateInterface::TYPE_NORMAL));
-       $stateMachine->addState(new State('executing', StateInterface::TYPE_NORMAL));
-       $stateMachine->addState(new State('failed', StateInterface::TYPE_FINAL));
-       $stateMachine->addState(new State('succeeded', StateInterface::TYPE_FINAL));
+        $stateMachine->addState(new State('new', StateInterface::TYPE_INITIAL));
+        $stateMachine->addState(new State('scheduled', StateInterface::TYPE_NORMAL));
+        $stateMachine->addState(new State('executing', StateInterface::TYPE_NORMAL));
+        $stateMachine->addState(new State('failed', StateInterface::TYPE_FINAL));
+        $stateMachine->addState(new State('succeeded', StateInterface::TYPE_FINAL));
 
-       $stateMachine->addTransition(new Transition('schedule', 'new', 'scheduled'));
-       $stateMachine->addTransition(new Transition('execute', 'scheduled', 'executing'));
-       $stateMachine->addTransition(new Transition('fail', 'executing', 'failed'));
-       $stateMachine->addTransition(new Transition('succeed', 'executing', 'succeeded'));
+        $stateMachine->addTransition(new Transition('schedule', 'new', 'scheduled'));
+        $stateMachine->addTransition(new Transition('execute', 'scheduled', 'executing'));
+        $stateMachine->addTransition(new Transition('fail', 'executing', 'failed'));
+        $stateMachine->addTransition(new Transition('succeed', 'executing', 'succeeded'));
     }
 
     /**
