@@ -1,14 +1,12 @@
 <?php
 namespace ConnectHolland\Tactician\SchedulerPlugin\Command;
 
-use Finite\StatefulInterface;
-
 /**
  * Stateful command to keep track of failed / succeeded scheduled commands
  *
  * @author Ron Rademaker
  */
-class AbstractStatefulScheduledCommand extends AbstractScheduledCommand implements StatefulInterface
+class AbstractStatefulScheduledCommand extends AbstractScheduledCommand implements StatefulCommandInterface
 {
     /**
      * The current state of the command
