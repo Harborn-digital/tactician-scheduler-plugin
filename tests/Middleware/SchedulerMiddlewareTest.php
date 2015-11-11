@@ -8,6 +8,7 @@ use ConnectHolland\Tactician\SchedulerPlugin\Scheduler\MongoScheduler;
 use ConnectHolland\Tactician\SchedulerPlugin\Tests\AbstractFileBasedSchedulerTest;
 use ConnectHolland\Tactician\SchedulerPlugin\Tests\Fixtures\Command\ScheduledCommand;
 use ConnectHolland\Tactician\SchedulerPlugin\Tests\Fixtures\Command\StatefulCommand;
+use Exception;
 use League\Tactician\CommandBus;
 use League\Tactician\Handler\CommandHandlerMiddleware;
 use League\Tactician\Handler\CommandNameExtractor\ClassNameExtractor;
@@ -15,6 +16,7 @@ use League\Tactician\Handler\Locator\InMemoryLocator;
 use League\Tactician\Handler\MethodNameInflector\HandleClassNameInflector;
 use League\Tactician\Tests\Fixtures\Command\AddTaskCommand;
 use League\Tactician\Tests\Fixtures\Handler\DynamicMethodsHandler;
+use Mockery;
 use MongoClient;
 
 /**
@@ -129,7 +131,47 @@ class SchedulerMiddlewareTest extends AbstractFileBasedSchedulerTest
         $this->commandBus->handle(new ExecuteScheduledCommandsCommand($this->commandBus));
         $this->assertContains('handleStatefulCommand', $this->methodHandler->getMethodsInvoked());
 
-        $resultCommand = $this->collection->findOne();        
+        $resultCommand = $this->collection->findOne();
         $this->assertEquals('succeeded', $resultCommand['state']);
+    }
+
+    /**
+     * Tests if a stateful command failed, it's marked failed
+     */
+    public function testFailStatefulCommand()
+    {
+        $failHandler = Mockery::mock(DynamicMethodsHandler::class);
+        $failHandler->shouldReceive('handleStatefulCommand')->andReturnUsing(function () {
+            throw new Exception('mock');
+        });
+
+        $handlerMiddleware = new CommandHandlerMiddleware(
+            new ClassNameExtractor(),
+            new InMemoryLocator([
+                StatefulCommand::class => $failHandler
+            ]),
+            new HandleClassNameInflector()
+        );
+
+        $scheduler = new MongoScheduler($this->collection);
+
+        $schedulerMiddleware = new SchedulerMiddleware($scheduler);
+
+        $commandBus = new CommandBus([$schedulerMiddleware, $handlerMiddleware]);
+
+        $command = new StatefulCommand();
+        $command->setTimestamp(time() + 1);
+        $commandBus->handle($command);
+
+        sleep(1);
+        try {
+            $commandBus->handle(new ExecuteScheduledCommandsCommand($commandBus));
+        }
+        catch (Exception $e) {
+            
+        }
+
+        $resultCommand = $this->collection->findOne();
+        $this->assertEquals('failed', $resultCommand['state']);
     }
 }
