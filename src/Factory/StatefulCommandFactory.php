@@ -1,6 +1,7 @@
 <?php
 namespace ConnectHolland\Tactician\SchedulerPlugin\Factory;
 
+use ConnectHolland\Tactician\SchedulerPlugin\Loader\StatefulCommandLoader;
 use Finite\Factory\AbstractFactory;
 use Finite\StateMachine\StateMachine;
 
