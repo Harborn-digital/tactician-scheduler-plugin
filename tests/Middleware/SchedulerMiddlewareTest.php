@@ -166,9 +166,7 @@ class SchedulerMiddlewareTest extends AbstractFileBasedSchedulerTest
         sleep(1);
         try {
             $commandBus->handle(new ExecuteScheduledCommandsCommand($commandBus));
-        }
-        catch (Exception $e) {
-            
+        } catch (Exception $e) {
         }
 
         $resultCommand = $this->collection->findOne();
