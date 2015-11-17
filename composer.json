@@ -4,12 +4,14 @@
     "require": {
         "league/tactician": "^0.6.0",
         "ramsey/uuid": "^2.8",
-        "symfony/console": "^2.7"
+        "symfony/console": "^2.7",
+        "yohang/finite": "^1.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^4.7",        
         "squizlabs/php_codesniffer": "^2.3",
-        "satooshi/php-coveralls": "^0.6.1"
+        "satooshi/php-coveralls": "^0.6.1",
+        "mockery/mockery": "^0.9.4"
     },
     "bin": [
         "bin/scheduler"
