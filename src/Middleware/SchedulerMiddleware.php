@@ -4,7 +4,6 @@ namespace ConnectHolland\Tactician\SchedulerPlugin\Middleware;
 
 use ConnectHolland\Tactician\SchedulerPlugin\Command\ExecuteScheduledCommandsCommand;
 use ConnectHolland\Tactician\SchedulerPlugin\Command\ScheduledCommandInterface;
-use ConnectHolland\Tactician\SchedulerPlugin\Command\StatefulCommandInterface;
 use ConnectHolland\Tactician\SchedulerPlugin\Scheduler\SchedulerInterface;
 use ConnectHolland\Tactician\SchedulerPlugin\Scheduler\StatefulAwareSchedulerInterface;
 use Exception;
