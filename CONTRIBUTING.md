@@ -1,5 +1,7 @@
 # Contributing
 
+*Thanks for contributing, you are awesome!*
+
 Contributions are **welcome**, will be fully **credited** and much **appreciated**.
 
 You may contribute via Pull Requests or Issues on [Github](https://github.com/RonRademaker/tactician-scheduler-plugin).
