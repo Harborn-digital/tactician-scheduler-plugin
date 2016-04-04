@@ -2,7 +2,7 @@
     "name": "connectholland/tactician-scheduler-plugin",
     "description": "Tactician plugin that allows scheduling a command to be executed at a specific time in the future",
     "require": {
-        "league/tactician": "^0.6.0",
+        "league/tactician": "^0.6.0 | ^1.0",
         "ramsey/uuid": "^2.8",
         "symfony/console": "^2.7"
     },
