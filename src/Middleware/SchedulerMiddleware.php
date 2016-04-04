@@ -5,8 +5,6 @@ namespace ConnectHolland\Tactician\SchedulerPlugin\Middleware;
 use ConnectHolland\Tactician\SchedulerPlugin\Command\ExecuteScheduledCommandsCommand;
 use ConnectHolland\Tactician\SchedulerPlugin\Command\ScheduledCommandInterface;
 use ConnectHolland\Tactician\SchedulerPlugin\Scheduler\SchedulerInterface;
-use ConnectHolland\Tactician\SchedulerPlugin\Scheduler\StatefulAwareSchedulerInterface;
-use Exception;
 use League\Tactician\Middleware;
 
 /**
@@ -57,17 +55,7 @@ class SchedulerMiddleware implements Middleware
         } elseif ($command instanceof ExecuteScheduledCommandsCommand) {
             $commands = $this->scheduler->getCommands();
             foreach ($commands as $scheduledCommand) {
-                try {
-                    $command->getCommandBus()->handle($scheduledCommand);
-                    if ($this->scheduler instanceof StatefulAwareSchedulerInterface) {
-                        $this->scheduler->succeed($scheduledCommand);
-                    }
-                } catch (Exception $e) {
-                    if ($this->scheduler instanceof StatefulAwareSchedulerInterface) {
-                        $this->scheduler->fail($scheduledCommand);
-                    }
-                    throw $e;
-                }
+                $command->getCommandBus()->handle($scheduledCommand);
             }
         } else {
             return $next($command);
