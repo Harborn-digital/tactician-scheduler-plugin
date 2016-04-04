@@ -12,7 +12,7 @@ use Symfony\Component\Console\Output\OutputInterface;
  */
 class DaemonCommand extends SchedulerCommand
 {
-    /**
+     /**
      * configure.
      *
      * Sets the command variables and it's inputs
