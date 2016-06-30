@@ -23,7 +23,7 @@ interface ScheduledCommandInterface
     /**
      * getTimestamp.
      *
-     * SGts the timestamp when this command should be executed
+     * Gets the timestamp when this command should be executed
      *
      * @since 1.0
      *
