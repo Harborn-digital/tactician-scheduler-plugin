@@ -13,7 +13,7 @@ This plugin allows you to create ScheduledCommands that will be executed at a sp
 # Usage
 Make sure you put the SchedulerMiddleware in your CommandBus middleware chain:
 
-```
+```php
 // create your other middleware
 $middleware[] = new SchedulerMiddleware(new FileBasedScheduler($pathWhereTheSchedulerMayKeepItsFiles) );
 // create your other middleware
@@ -22,7 +22,7 @@ $commandbus = new CommandBus($middleware);
 
 Let the command you want to schedule extend from AbstractScheduledCommand or implement the ScheduledCommandInterface. Create it and set a execution time:
 
-```
+```php
 class SayHappyNewYear extends AbstractScheduledCommand
 {
     private $message;
@@ -45,7 +45,7 @@ $myCommandBus->handle($myScheduledCommand);
 
 Create a bootstrap file that builds your Commandbus and cron the schedule execution command, for example bootstrap.php
 
-```
+```php
 // setup any environment you need
 // create your other middleware
 $middleware[] = new SchedulerMiddleware(new FileBasedScheduler($pathWhereTheSchedulerMayKeepItsFiles) );
@@ -56,20 +56,20 @@ return $commandbus;
 
 Cron the scheduler at any interval you like (the more it runs, the better you can time your commands), example for once a minute
 
-```
+```bash
 * * * * *   www-data    vendor/bin/scheduler scheduler:execute bootstrap.php
 ```
 
 Or you can use the daemon command that ships with the package, to schedule an iteration every 10 seconds use:
 
 
-```
+```bash
 vendor/bin/scheduler scheduler:daemon bootstrap.php 10
 ```
 
 To make it stop after a minute use:
 
-```
+```bash
 vendor/bin/scheduler scheduler:daemon bootstrap.php 10 6
 ```
 
